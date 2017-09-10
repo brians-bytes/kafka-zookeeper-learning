@@ -6,6 +6,18 @@ services:
       - "5000:5000"
     volumes:
       - .:/app
+    entrypoint: "python run.py"
+    links:
+      - redis
+      - kafka
+    logging:
+      driver : "none"
+
+  consumer:
+    build: .
+    entrypoint: "python consumer.py"
+    volumes:
+      - .:/app
     links:
       - redis
       - kafka

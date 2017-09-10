@@ -4,18 +4,14 @@ from kafka import SimpleProducer, KafkaClient, KafkaConsumer
 
 import json
 
-from threading import Thread
 
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
 kafka = KafkaClient('kafka:9092')
 
-topic = 'one_tets'
+topic = 'one_hjh'
 
-# consumer = KafkaConsumer(topic, group_id='download', bootstrap_servers=['kafka:9092'],
-#                         auto_offset_reset = 'earliest',
-#                         value_deserializer = lambda m: json.loads(m.decode()))
 producer = SimpleProducer(kafka)
 
 
